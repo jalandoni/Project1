@@ -1,0 +1,24 @@
+.parallax { 
+    background-image: url("https://www.cdgi.com/wp-content/uploads/2019/05/404-Pages-1112x556.jpg"); 
+    min-height: 500px;  
+    background-attachment: fixed; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.backbtn{
+    
+    border-radius: 4px;
+    background-color:green;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 5px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-left: 45%;
+    
+}

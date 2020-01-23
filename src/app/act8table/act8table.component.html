@@ -1,0 +1,21 @@
+<h2>Student List</h2>
+<table mat-table class="mat-elevation-z8">
+    <tr>
+      <th>ID Number</th>
+      <th>Name</th>
+      <th>Email Address</th>
+      <th>Phone</th>
+      <th>Action</th>
+    </tr>
+    <tr class="information" *ngFor="let studentinfo of StudentInformation">
+      <td matColumnDef="position">{{studentinfo.id}}</td>
+      <td matColumnDef="position">{{studentinfo.name | titlecase}}</td>
+      <td matColumnDef="position">{{studentinfo.email}}</td>
+      <td matColumnDef="position">{{studentinfo.phone}}</td>
+      <td matColumnDef="position">
+        <button class="editbtn" routerLink='/view/{{studentinfo.id}}' >View</button>
+        <button class="editbtn"  (click)="onEdit(studentinfo)">Edit</button>
+        <button class="deletebtn"  (click)="onDelete(studentinfo.id)">Delete</button></td>
+
+      
+  </tr>

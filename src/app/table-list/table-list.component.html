@@ -1,0 +1,26 @@
+<h2>Student List</h2>
+<table mat-table class="mat-elevation-z8">
+    <tr>
+      <th>ID Number</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email Address</th>
+      <th>Course and Year</th>
+      <th>Action</th>
+    </tr>
+    <tr class="information" *ngFor="let studentinfo of StudentInformation; let i = index">
+      <td matColumnDef="position">{{i+1}}</td>
+      <td matColumnDef="position">{{studentinfo.name | titlecase}}</td>
+      <td matColumnDef="position">{{studentinfo.age}}</td>
+      <td matColumnDef="position">{{studentinfo.email}}</td>
+      <td matColumnDef="position">{{studentinfo.course | uppercase}}-{{studentinfo.year}}</td>
+      <td matColumnDef="position"><button class="editbtn"  (click)="onEdit(studentinfo)">Edit</button></td>
+      
+  </tr>
+
+
+
+   
+   
+
+</table> 

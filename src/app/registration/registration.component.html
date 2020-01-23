@@ -1,0 +1,105 @@
+<div>
+    <div>
+        <mat-card class="registration-card">
+            <form (ngSubmit)="onSubmit(sampleForm) ; sampleForm.resetForm()" #sampleForm="ngForm">
+                <mat-card-title class="title">Student Registration Form</mat-card-title>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <i class="material-icons">
+                            account_box
+                        </i><label for="name">Full Name</label>
+                        <input matInput name="name" [(ngModel)]="fullname" minlength="3" value="Your name" required
+                            #name="ngModel">
+                    </mat-form-field>
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                        <div [class.font]="isValid" *ngIf="name.errors.required">
+                            Name is required
+                        </div>
+                        <div *ngIf="name.errors.minlength" [class.font]="isValid">
+                            Name must be at least 3 characters long
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <i class="material-icons">
+                            perm_identity
+                        </i> <label>Age</label>
+                        <input matInput required type="number" [(ngModel)]="age" name="ageInput" #ageInput="ngModel" />
+                    </mat-form-field>
+                    <div *ngIf="ageInput.invalid && (ageInput.dirty || ageInput.touched)" class="alert alert-danger">
+                        <div [class.font]="isValid" *ngIf="ageInput.errors.required">
+                            Age is required
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <i class="material-icons">
+                            contact_mail
+                        </i><label for="email">Email</label>
+
+                        <input matInput required type="email" pattern=".+@gmail.com" [(ngModel)]="email"
+                            name="emailInput" #emailInput="ngModel">
+                    </mat-form-field>
+                    <div [hidden]="emailInput.valid || emailInput.pristine" [class.font]="isValid"
+                        class="alert alert-danger">
+                        Email is required with valid pattern
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <i class="material-icons">
+                        assessment
+                    </i><label>Year</label>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Your Year Level</mat-label>
+                        <mat-select class="form-control" class="mdb-select md-form" required [(ngModel)]="year"
+                            name="yearInput" #yearInput="ngModel">
+                            <mat-option *ngFor="let yr of level" [value]="yr">{{yr}} </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div *ngIf="yearInput.invalid && (yearInput.dirty || yearInput.touched)" class="alert alert-danger">
+                        <div [class.font]="isValid" *ngIf="yearInput.errors.required">
+                            Year is required
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <i class="material-icons">
+                            subject
+                        </i><label>Course</label>
+                        <input matInput required type="text" [(ngModel)]="course" name="courseInput"
+                            #courseInput="ngModel" />
+                    </mat-form-field>
+                    <div *ngIf="courseInput.invalid && (courseInput.dirty || courseInput.touched)"
+                        class="alert alert-danger">
+                        <div [class.font]="isValid" *ngIf="courseInput.errors.required">
+                            Course is required.
+                        </div>
+                    </div>
+                </div>
+                <button [class.submitbtn]="sampleForm.form.valid" id="submitInfo"
+                    [disabled]="!sampleForm.form.valid">Submit</button>
+            </form>
+        </mat-card>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <div>
+        <app-table-list (InformationEdit)="getinformation($event)" [StudentInformation]="StudentList"></app-table-list>
+    </div>
+</div>

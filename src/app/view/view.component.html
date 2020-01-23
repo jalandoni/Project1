@@ -1,0 +1,9 @@
+<div class="registration-card">
+    <ul class="information" *ngFor="let studentinfo of userInfo">
+    <h3>ID: {{studentinfo.id}}</h3>
+    <h3>NAME: {{studentinfo.name}}</h3>
+    <h3>EMAIL: {{studentinfo.email}}</h3>
+    <h3>PHONE: {{studentinfo.phone}}</h3>
+</ul>
+<button class="backbtn" routerLink='/dashboard'>Back</button>
+</div>
